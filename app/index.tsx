@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet, Pressable, Button } from "react-native";
 import { FlatList, ScrollView, TextInput } from "react-native-gesture-handler";
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 type Ingredient = {
   name: string,
@@ -15,7 +16,7 @@ const IngredientList = ({item}: ListProps) => {
     <View style={styles.card}>
       <Text style={styles.listText}>{item.name}</Text>
       <Pressable>
-        <Text style={styles.listText}>X</Text>
+        <AntDesign name="close" size={18} color="white" />
       </Pressable>
     </View>
   );
@@ -34,7 +35,7 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.input} onChangeText={setText} value={text}></TextInput>
+        <TextInput style={styles.input} onChangeText={setText} value={text} placeholder="Chicken"></TextInput>
         <Button 
           title="Add"
           onPress={() => {
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
     borderColor: 'solid black',
     backgroundColor: 'white',
     borderRadius: 5,
+    paddingLeft: 5,
   },
   inputContainer: {
     flexDirection: 'row',
